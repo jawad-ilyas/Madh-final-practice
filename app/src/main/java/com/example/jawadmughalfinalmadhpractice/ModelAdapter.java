@@ -4,8 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jawadmughalfinalmadhpractice.databinding.SingleModelBinding;
@@ -41,6 +43,28 @@ public class ModelAdapter  extends  RecyclerView.Adapter<ModelAdapter.ModelView>
         holder.binding.modelName.setText(dummyDataList.get(position).getModelName());
         holder.binding.modelDescription.setText(dummyDataList.get(position).getModelDescription());
         holder.binding.modelImg.setImageResource(dummyDataList.get(position).getModelImg());
+
+
+        holder.itemView.setOnClickListener(v -> {
+
+
+            // first step for create alert box is create object
+            AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(context);
+            deleteBuilder.setTitle("are your shower");
+
+
+            deleteBuilder.setPositiveButton("delete" , ((dialog, which) -> {
+
+                dummyDataList.remove(position);
+                notifyItemRemoved(position);
+
+
+            })).setNeutralButton("Cancel"  , ((dialog, which) -> {
+
+            }));
+            deleteBuilder.show();
+
+        });
     }
 
     @Override
