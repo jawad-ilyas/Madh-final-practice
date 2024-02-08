@@ -3,13 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-   <androidx.recyclerview.widget.RecyclerView
+<!--   <androidx.recyclerview.widget.RecyclerView-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:id="@+id/modelRecyclerView"-->
+<!--       tools:listitem="@layout/single_model"-->
+<!--       android:layout_height="wrap_content" />-->
+
+
+<com.google.android.material.tabs.TabLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:id="@+id/tabLayout" />
+   <androidx.viewpager2.widget.ViewPager2
        android:layout_width="match_parent"
-       android:id="@+id/modelRecyclerView"
-       tools:listitem="@layout/single_model"
-       android:layout_height="wrap_content" />
+       android:id="@+id/viewPager2"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       />
+
 
 </LinearLayout>
